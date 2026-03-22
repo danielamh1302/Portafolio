@@ -330,6 +330,8 @@ button {
        SOLUCIÓN: Falta la transición para la propiedad width
        Agregar: transition: width var(--transition-base);
        Esto hace que la línea se expanda suavemente al hacer hover */
+    transition: width var(--transition-base);
+    
 }
 
 .nav__link:hover,
@@ -433,6 +435,7 @@ button {
     /* ERROR 8: Los botones del hero están pegados sin espacio entre ellos
        PISTA: Falta la propiedad que define el espacio entre elementos flex */
     flex-wrap: wrap;
+    gap: var(--spacing-md);
 }
 
 .hero__image {
@@ -453,6 +456,7 @@ button {
     /* ERROR 9: El blob en el hero no tiene la animación de forma dinámica
        PISTA: Falta la propiedad animation que referencia a blob-animation */
     position: relative;
+    animation blob-animation 8s ease-in-out infinite;
 }
 
 @keyframes blob-animation {
@@ -550,6 +554,7 @@ button {
 
 .interests__grid {
     display: grid;
+    grid-template-columns: repeat(3, 3fr);
     /* ERROR 10: Las cards de intereses no se muestran en 3 columnas, están apiladas
        PISTA: Falta la propiedad de CSS Grid que define las columnas */
     gap: var(--spacing-xl);
@@ -559,8 +564,10 @@ button {
 .interest__card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-bg-tertiary);
+
     /* ERROR 11: Las cards de intereses tienen esquinas puntiagudas en vez de redondeadas
        PISTA: Falta la propiedad border-radius */
+    border-radius: 12px;
     padding: var(--spacing-xl);
     transition: all var(--transition-base);
     position: relative;
@@ -580,6 +587,7 @@ button {
        SOLUCIÓN: Falta la transición para la propiedad transform
        Agregar: transition: transform var(--transition-base);
        El pseudoelemento ::before necesita su propia transición para animar el scaleX */
+    transition: transform var(--transition-base);
 }
 
 .interest__card:hover {
@@ -780,6 +788,7 @@ button {
    Los selectores específicos como --github necesitan definir su propio color */
 .social__icon--github {
     background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
 }
 
 .social__icon--email {
